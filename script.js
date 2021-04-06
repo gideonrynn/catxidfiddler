@@ -16,8 +16,6 @@ function addZeroes() {
     */
     numArray.forEach(number => {
 
-        console.log(number === "");
-
         let numberOfDigits = number.length;
         let numberOfZeroes = 10 - numberOfDigits;
 
@@ -34,4 +32,28 @@ function addZeroes() {
 
 }
 
+
+function addQuotes() {
+
+    document.querySelector('#output').textContent = "";
+    let originalList = document.querySelector('#input').value;
+    let quotesList = "";
+
+    /* during each loop remove get 10 digit id, apply quotes and spacing
+    and remove that string from the list so loop will format next id*/
+    for(let counter = 0; counter < originalList.length; counter++) {
+
+        CATracksID = originalList.substr(0, 10);
+        // console.log(CATracksID);
+        quotesList += "'" + CATracksID + "'" + "," + " ";
+        originalList = originalList.slice(11);
+        // console.log(originalList);
+        
+    };
+
+    document.querySelector('#output').textContent = quotesList;
+
+}
+
 document.querySelector('#zerosubmit').addEventListener("click", addZeroes);
+document.querySelector('#quotessubmit').addEventListener("click", addQuotes);
