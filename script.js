@@ -23,8 +23,9 @@ function addZeroes() {
                 tenDigitNums += 0
             };
 
-            tenDigitNums = tenDigitNums + number + "\n";
-        }
+        } 
+
+        tenDigitNums = tenDigitNums + number + "\n";
     })
 
     document.querySelector('#output').textContent = tenDigitNums;
@@ -59,6 +60,9 @@ function addQuotes() {
 
 // }
 
+function clearOutput() {
+    document.querySelector('#output').textContent = "";
+}
 
 function copyToClipboard() {
     let copyOutput = document.querySelector("#output");
@@ -70,3 +74,4 @@ function copyToClipboard() {
 document.querySelector('#zero-submit').addEventListener("click", addZeroes);
 document.querySelector('#quotes-submit').addEventListener("click", addQuotes);
 // document.querySelector('#copy').addEventListener("click", copyToClipboard);
+document.querySelector('#clear').addEventListener("click", clearOutput);

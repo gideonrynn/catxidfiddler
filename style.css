@@ -42,6 +42,10 @@ textarea::placeholder {
     font-style: italic;
 }
 
+textarea:focus::placeholder {
+    color: transparent
+}
+
 button {
     border-radius: 10px;
     height: 50px;
@@ -49,7 +53,7 @@ button {
 }
 
 button:hover {
-    background-color: #836EAA;
+    background-color: #9cb2bc;
 }
 
 .arrow {
