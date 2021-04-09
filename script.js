@@ -12,8 +12,7 @@ function addZeroes() {
 
     let tenDigitNums = "";
 
-    /* calculate number of zeroes to be created if any
-    */
+    // calculate number of zeroes to be created if any
     numArray.forEach(number => {
 
         let numberOfDigits = number.length;
@@ -29,6 +28,7 @@ function addZeroes() {
     })
 
     document.querySelector('#output').textContent = tenDigitNums;
+    console.log("done")
 
 }
 
@@ -55,5 +55,18 @@ function addQuotes() {
 
 }
 
-document.querySelector('#zerosubmit').addEventListener("click", addZeroes);
-document.querySelector('#quotessubmit').addEventListener("click", addQuotes);
+// function applyZeroesandQuotes {
+
+// }
+
+
+function copyToClipboard() {
+    let copyOutput = document.querySelector("#output");
+    copyOutput.select();
+    copyOutput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+}
+
+document.querySelector('#zero-submit').addEventListener("click", addZeroes);
+document.querySelector('#quotes-submit').addEventListener("click", addQuotes);
+// document.querySelector('#copy').addEventListener("click", copyToClipboard);

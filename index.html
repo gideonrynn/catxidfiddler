@@ -6,16 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CATxID Fiddler</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-
-    <form id="submissionform">
-        <textarea rows="15" cols="35" id="input"></textarea><br/>
-        <button type="button" id="zerosubmit">Add Zeroes</button>
-        <button type="button" id="quotessubmit">Apply Quotes</button>
-    </form>
-    <br/>
-    <textarea rows="15" cols="35" id="output"> </textarea>
-    
+    <div class="container">
+        <div class="wrapper-one">
+            <div class="input-section">
+                <div class="text-input">
+                    <textarea rows="20" cols="40" id="input" placeholder="987436"></textarea>
+                </div>
+            </div>
+            <div class="button-options">
+                <button type="button" id="zero-submit">Add Zeroes</button>
+                <button type="button" id="quotes-submit">Apply Quotes</button>
+            </div>
+        </div>
+        <div class="wrapper-two">
+            <div class="input-section">
+                <div class="text-input">
+                    <textarea rows="20" cols="40" id="input" placeholder="987436"></textarea>
+                </div>
+            </div>
+            <div class="button-options">
+                <button type="button" id="zero-submit">Add Zeroes <i class="arrow right"></i></button>
+                <button type="button" id="quotes-submit">Apply Quotes<i class="arrow right"></i></button>
+                <!-- <button type="button" id="quotes-submit">Zeroes and Quotes<i class="arrow right"></i></button> -->
+            </div>
+            <div class="output-section">
+                <textarea rows="20" cols="40" id="output" placeholder="'0000987436'"></textarea>
+                <!-- <button type="button" id="copy">Copy to Clipboard</button> -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
