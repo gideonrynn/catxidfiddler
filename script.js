@@ -57,13 +57,13 @@ function addQuotes() {
       numArray.forEach(number => {
 
         CATracksID = number.trim();
-        quotesList += "'" + CATracksID + "'" + "," + "\n";
+        quotesList += "'" + CATracksID + "'" + "," + " " + "\n";
      
     })
 
     document.querySelector('#output').textContent = quotesList;
     // document.querySelector("#copy").removeAttribute("disabled");
-    document.querySelector("#clear").removeAttribute("disabled");
+    document.querySelector("#clear-right").removeAttribute("disabled");
     console.log(document.querySelector('#output').innerHTML);
 }
 
@@ -76,6 +76,19 @@ function addQuotes() {
 
 function clearOutput() {
     document.querySelector('#output').innerHTML = "";
+    // console.log(document.querySelector('#output').innerHTML);
+    // console.log(document.querySelector('#output').textContent);
+}
+
+function clearOutputRight() {
+    document.querySelector('#output').innerHTML = "";
+    // console.log(document.querySelector('#output').innerHTML);
+    // console.log(document.querySelector('#output').textContent);
+}
+
+function clearOutputLeft() {
+    console.log("clicked!")
+    document.querySelector('#input').value = "";
     // console.log(document.querySelector('#output').innerHTML);
     // console.log(document.querySelector('#output').textContent);
 }
@@ -95,5 +108,6 @@ function clearOutput() {
 document.querySelector('#zero-submit').addEventListener("click", addZeroes);
 document.querySelector('#quotes-submit').addEventListener("click", addQuotes);
 // document.querySelector('#copy').addEventListener("click", copyToClipboard);
-document.querySelector('#clear').addEventListener("click", clearOutput);
+document.querySelector('#clear-right').addEventListener("click", clearOutputRight);
+document.querySelector('#clear-left').addEventListener("click", clearOutputLeft);
 // document.querySelector('#output').addEventListener("input change keyup", highlightActions);
