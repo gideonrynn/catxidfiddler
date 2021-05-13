@@ -82,15 +82,11 @@ function clearOutput() {
 
 function clearOutputRight() {
     document.querySelector('#output').innerHTML = "";
-    // console.log(document.querySelector('#output').innerHTML);
-    // console.log(document.querySelector('#output').textContent);
 }
 
 function clearOutputLeft() {
-    console.log("clicked!")
+    // console.log("clicked!")
     document.querySelector('#input').value = "";
-    // console.log(document.querySelector('#output').innerHTML);
-    // console.log(document.querySelector('#output').textContent);
 }
 
 // function copyToClipboard() {
