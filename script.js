@@ -6,8 +6,8 @@ function addZeroes() {
 
     // get original list submitted by user
     let originalList = document.querySelector('#input').value;
-    console.log("original user input list: " + "\n" + originalList);
-    console.log("this is the type of the user input value: " + typeof originalList);
+    // console.log("original user input list: " + "\n" + originalList);
+    // console.log("this is the type of the user input value: " + typeof originalList);
 
     // trim white space and separate into array so we can evaluate each item appropriately
     let numArray = originalList.trim().split("\n");
@@ -47,16 +47,17 @@ function addQuotes() {
     document.querySelector('#output').textContent = "";
     let originalList = document.querySelector('#input').value;
     let quotesList = "";
-    console.log("this is the user inputted original list: " + "\n" + originalList + " and the length is: " + originalList.length);
+    // console.log("this is the user inputted original list: " + "\n" + originalList + " and the length is: " + originalList.length);
+
 
     let numArray = originalList.trim().split("\n");
-    console.log("this is the modified list: " + "\n" + numArray + " and the length is: " + numArray.length);
+    // console.log("this is the modified list: " + "\n" + numArray + " and the length is: " + numArray.length);
 
       // for each block of numbers, remove whitespace and apply quotes
       numArray.forEach(number => {
 
         CATracksID = number.trim();
-        quotesList += "'" + CATracksID + "'" + "," + " ";
+        quotesList += "'" + CATracksID + "'" + "," + "\n";
      
     })
 
@@ -75,21 +76,21 @@ function addQuotes() {
 
 function clearOutput() {
     document.querySelector('#output').innerHTML = "";
-    console.log(document.querySelector('#output').innerHTML);
-    console.log(document.querySelector('#output').textContent);
+    // console.log(document.querySelector('#output').innerHTML);
+    // console.log(document.querySelector('#output').textContent);
 }
 
-function copyToClipboard() {
-    let copyOutput = document.querySelector("#output");
-    copyOutput.select();
-    copyOutput.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-}
+// function copyToClipboard() {
+//     let copyOutput = document.querySelector("#output");
+//     copyOutput.select();
+//     copyOutput.setSelectionRange(0, 99999);
+//     document.execCommand("copy");
+// }
 
-function highlightActions() {
-    console.log("highlighted");
+// function highlightActions() {
+//     console.log("highlighted");
     
-}
+// }
 
 document.querySelector('#zero-submit').addEventListener("click", addZeroes);
 document.querySelector('#quotes-submit').addEventListener("click", addQuotes);
