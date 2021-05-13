@@ -25,19 +25,23 @@
         <div class="wrapper-two">
             <div class="input-section">
                 <div class="text-input">
-                    <textarea rows="20" cols="40" id="input" placeholder="987436"></textarea>
+                    <textarea rows="20" cols="40" id="input" placeholder="Input: 987436"></textarea>
                 </div>
             </div>
             <div class="button-options">
                 <button type="button" id="zero-submit">Add Zeroes  <i class="arrow right"></i></button>
                 <button type="button" id="quotes-submit">Apply Quotes  <i class="arrow right"></i></button>
-                <button type="button" id="clear">Clear  <i class="arrow right"></i></button>
+                <button type="button clear" id="clear" disabled>Clear  <i class="arrow right"></i></button>
+                <!-- <button type="button copy" id="copy" disabled>Copy to Clipboard</button> -->
                 <!-- <button type="button" id="quotes-submit">Zeroes and Quotes<i class="arrow right"></i></button> -->
             </div>
             <div class="output-section">
-                <textarea rows="20" cols="40" id="output" placeholder="'0000987436'"></textarea>
-                <!-- <button type="button" id="copy">Copy to Clipboard</button> -->
+                <textarea rows="20" cols="40" id="output" placeholder="Result: '0000987436'" readonly></textarea>
+                
             </div>
+            <!-- <div class="button-options">
+                
+            </div> -->
         </div>
     </div>
 </body>

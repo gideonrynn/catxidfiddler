@@ -2,33 +2,41 @@
 function addZeroes() {
 
     // clear output between conversions
-    document.querySelector('#output').textContent = "";
+    document.querySelector('#output').innerHTML = "";
 
     // get original list submitted by user
     let originalList = document.querySelector('#input').value;
-    
-    // separate into array so we can evaluate each item appropriately
-    let numArray = originalList.split("\n");
+    console.log("original user input list: " + "\n" + originalList);
+    console.log("this is the type of the user input value: " + typeof originalList);
+
+    // trim white space and separate into array so we can evaluate each item appropriately
+    let numArray = originalList.trim().split("\n");
+    console.log("numarray: " + numArray);
 
     let tenDigitNums = "";
 
     // calculate number of zeroes to be created if any
     numArray.forEach(number => {
 
-        let numberOfDigits = number.length;
+        console.log("this is the value we are evaluating: " + number + " and this is it's type: " + typeof number);
+        number = parseInt(number, 10);
+        console.log("This is the number: " + number + " and this is the type: " + typeof number);
+        let numberOfDigits = number.toString().length;
         let numberOfZeroes = 10 - numberOfDigits;
 
         if(numberOfZeroes > 0 && number !== null && number !== "") {
             for(let counter = 0; counter < numberOfZeroes; counter++) {
                 tenDigitNums += 0
             };
-
+            console.log(tenDigitNums);
         } 
 
-        tenDigitNums = tenDigitNums + number + "\n";
+        tenDigitNums = tenDigitNums + number + "\n"; 
+     
     })
 
-    document.querySelector('#output').textContent = tenDigitNums;
+    // console.log(typeof tenDigitNums);
+    document.querySelector('#output').innerHTML = tenDigitNums;
     console.log("done")
 
 }
@@ -39,29 +47,36 @@ function addQuotes() {
     document.querySelector('#output').textContent = "";
     let originalList = document.querySelector('#input').value;
     let quotesList = "";
+    console.log("this is the user inputted original list: " + "\n" + originalList + " and the length is: " + originalList.length);
 
-    /* during each loop remove get 10 digit id, apply quotes and spacing
-    and remove that string from the list so loop will format next id*/
-    for(let counter = 0; counter < originalList.length; counter++) {
+    let numArray = originalList.trim().split("\n");
+    console.log("this is the modified list: " + "\n" + numArray + " and the length is: " + numArray.length);
 
-        CATracksID = originalList.substr(0, 10);
-        // console.log(CATracksID);
+      // for each block of numbers, remove whitespace and apply quotes
+      numArray.forEach(number => {
+
+        CATracksID = number.trim();
         quotesList += "'" + CATracksID + "'" + "," + " ";
-        originalList = originalList.slice(11);
-        // console.log(originalList);
-        
-    };
+     
+    })
 
     document.querySelector('#output').textContent = quotesList;
-
+    // document.querySelector("#copy").removeAttribute("disabled");
+    document.querySelector("#clear").removeAttribute("disabled");
+    console.log(document.querySelector('#output').innerHTML);
 }
 
+// function addCSSClass() {
+
+// }
 // function applyZeroesandQuotes {
 
 // }
 
 function clearOutput() {
-    document.querySelector('#output').textContent = "";
+    document.querySelector('#output').innerHTML = "";
+    console.log(document.querySelector('#output').innerHTML);
+    console.log(document.querySelector('#output').textContent);
 }
 
 function copyToClipboard() {
@@ -71,7 +86,13 @@ function copyToClipboard() {
     document.execCommand("copy");
 }
 
+function highlightActions() {
+    console.log("highlighted");
+    
+}
+
 document.querySelector('#zero-submit').addEventListener("click", addZeroes);
 document.querySelector('#quotes-submit').addEventListener("click", addQuotes);
 // document.querySelector('#copy').addEventListener("click", copyToClipboard);
 document.querySelector('#clear').addEventListener("click", clearOutput);
+// document.querySelector('#output').addEventListener("input change keyup", highlightActions);
