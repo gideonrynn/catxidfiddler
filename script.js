@@ -18,9 +18,9 @@ function addZeroes() {
     // calculate number of zeroes to be created if any
     numArray.forEach(number => {
 
-        console.log("this is the value we are evaluating: " + number + " and this is it's type: " + typeof number);
+        // console.log("this is the value we are evaluating: " + number + " and this is it's type: " + typeof number);
         number = parseInt(number, 10);
-        console.log("This is the number: " + number + " and this is the type: " + typeof number);
+        // console.log("This is the number: " + number + " and this is the type: " + typeof number);
         let numberOfDigits = number.toString().length;
         let numberOfZeroes = 10 - numberOfDigits;
 
@@ -37,7 +37,9 @@ function addZeroes() {
 
     // console.log(typeof tenDigitNums);
     document.querySelector('#output').innerHTML = tenDigitNums;
-    console.log("done")
+    document.querySelector("#clear-right").removeAttribute("disabled");
+    document.querySelector("#results-to-input").removeAttribute("disabled");
+    // console.log("done")
 
 }
 
@@ -53,17 +55,25 @@ function addQuotes() {
     let numArray = originalList.trim().split("\n");
     // console.log("this is the modified list: " + "\n" + numArray + " and the length is: " + numArray.length);
 
-      // for each block of numbers, remove whitespace and apply quotes
-      numArray.forEach(number => {
+    // remove whitespace and apply quotes
+    numArray.forEach(number => {
 
         CATracksID = number.trim();
-        quotesList += "'" + CATracksID + "'" + "," + " " + "\n";
+
+        // if last item in array, do not apply comma
+        if(number === numArray[numArray.length - 1]) {
+            quotesList += "'" + CATracksID + "'";
+        } else {
+            quotesList += "'" + CATracksID + "'" + "," + " " + "\n";
+        }
+        
      
     })
 
     document.querySelector('#output').textContent = quotesList;
     // document.querySelector("#copy").removeAttribute("disabled");
     document.querySelector("#clear-right").removeAttribute("disabled");
+    document.querySelector("#results-to-input").removeAttribute("disabled");
     console.log(document.querySelector('#output').innerHTML);
 }
 
@@ -74,6 +84,15 @@ function addQuotes() {
 
 // }
 
+function copyResultToInput() {
+    document.querySelector('#input').value = "";
+    let outputList = document.querySelector('#output').value;
+    document.querySelector('#input').value = outputList;
+    // document.querySelector('#input').innerHTML = outputList;
+    // console.log("done")
+
+}
+
 function clearOutput() {
     document.querySelector('#output').innerHTML = "";
     // console.log(document.querySelector('#output').innerHTML);
@@ -82,6 +101,8 @@ function clearOutput() {
 
 function clearOutputRight() {
     document.querySelector('#output').innerHTML = "";
+    document.querySelector("#clear-right").setAttribute("disabled", true);
+    document.querySelector("#results-to-input").setAttribute("disabled", true);
 }
 
 function clearOutputLeft() {
@@ -106,4 +127,5 @@ document.querySelector('#quotes-submit').addEventListener("click", addQuotes);
 // document.querySelector('#copy').addEventListener("click", copyToClipboard);
 document.querySelector('#clear-right').addEventListener("click", clearOutputRight);
 document.querySelector('#clear-left').addEventListener("click", clearOutputLeft);
+document.querySelector('#results-to-input').addEventListener("click", copyResultToInput);
 // document.querySelector('#output').addEventListener("input change keyup", highlightActions);
