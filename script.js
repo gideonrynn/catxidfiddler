@@ -1,4 +1,8 @@
 
+// function runChecks() {
+
+// }
+
 function addZeroes() {
 
     // clear output between conversions
@@ -11,7 +15,7 @@ function addZeroes() {
 
     // trim white space and separate into array so we can evaluate each item appropriately
     let numArray = originalList.trim().split("\n");
-    console.log("numarray: " + numArray);
+    // console.log("numarray: " + numArray);
 
     let tenDigitNums = "";
 
@@ -24,12 +28,17 @@ function addZeroes() {
         let numberOfDigits = number.toString().length;
         let numberOfZeroes = 10 - numberOfDigits;
 
+        // if(numberOfDigits > 10) {
+        //     document.querySelector('#input-comment').innerHTML = "One of the items below has more than 10 digits";
+        //     document.querySelector('#input-comment').classList.add("overTen");
+        // }
+
         if(numberOfZeroes > 0 && number !== null && number !== "") {
             for(let counter = 0; counter < numberOfZeroes; counter++) {
                 tenDigitNums += 0
             };
-            console.log(tenDigitNums);
-        } 
+            // console.log(tenDigitNums);
+        }
 
         tenDigitNums = tenDigitNums + number + "\n"; 
      
@@ -39,6 +48,7 @@ function addZeroes() {
     document.querySelector('#output').innerHTML = tenDigitNums;
     document.querySelector("#clear-right").removeAttribute("disabled");
     document.querySelector("#results-to-input").removeAttribute("disabled");
+    document.querySelector("#four-line-submit").removeAttribute("disabled");
     // console.log("done")
 
 }
@@ -56,17 +66,18 @@ function addQuotes() {
     // console.log("this is the modified list: " + "\n" + numArray + " and the length is: " + numArray.length);
 
     // remove whitespace and apply quotes
-    numArray.forEach(number => {
+    numArray.forEach((number, index) => {
 
         CATracksID = number.trim();
 
         // if last item in array, do not apply comma
-        if(number === numArray[numArray.length - 1]) {
+        if(index === numArray.length - 1) {
+            // console.log("index", index)
+            // console.log("index of last item", numArray.length - 1);
             quotesList += "'" + CATracksID + "'";
         } else {
             quotesList += "'" + CATracksID + "'" + "," + " " + "\n";
         }
-        
      
     })
 
@@ -74,15 +85,36 @@ function addQuotes() {
     // document.querySelector("#copy").removeAttribute("disabled");
     document.querySelector("#clear-right").removeAttribute("disabled");
     document.querySelector("#results-to-input").removeAttribute("disabled");
+    document.querySelector("#four-line-submit").removeAttribute("disabled");
     console.log(document.querySelector('#output').innerHTML);
 }
 
-// function addCSSClass() {
 
-// }
-// function applyZeroesandQuotes {
+function fourPerLine() {
+    let outputList = document.querySelector('#output').value;
 
-// }
+    let newOutputList = '';  
+    let numArray = outputList.trim().split("\n");
+    // console.log("this is the modified list: " + "\n" + numArray + " and the length is: " + numArray.length);
+
+    //if it is the 4th item, add new line
+    //otherwise, take every item in array and add it to that array with a space
+    for (var i = 0; i < numArray.length; i++) {
+
+        if(i % 4 === 3) {
+            newOutputList += numArray[i] + "\n";
+        } else {
+            
+            newOutputList += numArray[i] + " ";
+        }
+        
+       newOutputList;
+    };
+    
+    document.querySelector('#output').textContent = newOutputList;
+    console.log(document.querySelector('#output').innerHTML);
+
+}
 
 function copyResultToInput() {
     document.querySelector('#input').value = "";
@@ -101,13 +133,16 @@ function clearOutput() {
 
 function clearOutputRight() {
     document.querySelector('#output').innerHTML = "";
+    // document.querySelector('#output-comment').innerHTML = "";
+    // document.querySelector('#output-comment').classList.remove("overTen");
     document.querySelector("#clear-right").setAttribute("disabled", true);
     document.querySelector("#results-to-input").setAttribute("disabled", true);
 }
 
-function clearOutputLeft() {
+function clearInputLeft() {
     // console.log("clicked!")
     document.querySelector('#input').value = "";
+    // document.querySelector('#input-comment').innerHTML = "";
 }
 
 // function copyToClipboard() {
@@ -119,13 +154,20 @@ function clearOutputLeft() {
 
 // function highlightActions() {
 //     console.log("highlighted");
-    
 // }
 
+// function addCSSClass() {
+// }
+// function applyZeroesandQuotes {
+
+// }
+
+// document.querySelector('#input').addEventListener("onchange", addZeroes);
 document.querySelector('#zero-submit').addEventListener("click", addZeroes);
 document.querySelector('#quotes-submit').addEventListener("click", addQuotes);
+document.querySelector('#four-line-submit').addEventListener("click", fourPerLine);
 // document.querySelector('#copy').addEventListener("click", copyToClipboard);
 document.querySelector('#clear-right').addEventListener("click", clearOutputRight);
-document.querySelector('#clear-left').addEventListener("click", clearOutputLeft);
+document.querySelector('#clear-left').addEventListener("click", clearInputLeft);
 document.querySelector('#results-to-input').addEventListener("click", copyResultToInput);
 // document.querySelector('#output').addEventListener("input change keyup", highlightActions);

@@ -79,3 +79,12 @@ button:hover {
   /* set script so that value in the result box causes copy to clipboard to not be disabled */
   
 }
+/* 
+#input-comment, #output-comment, #button-comment {
+  border-radius: 3px;
+  padding: 3px;
+} */
+
+/* .overTen {
+  color: white;
+} */
