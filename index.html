@@ -25,17 +25,18 @@
         <div class="wrapper-two">
             <div class="input-section">            
                 <div class="text-input">
-                    <textarea rows="20" cols="50" id="input" placeholder="Input: &#10 987436 &#10 89431 &#10 5876512"></textarea>
+                    <textarea rows="20" cols="50" id="input" placeholder="Input: &#10 987436 &#10 89431 &#10 5876512" onchange="runValidation()"></textarea>
                 </div>
             </div>
             <div class="button-options">
                 <div id="button-comment"> <p></p></div>
-                <button type="button clear" id="clear-left"><i class="arrow left"> </i>  Clear</button>
-                <button type="button" id="zero-submit">Add Zeroes  <i class="arrow right"></i></button>
-                <button type="button" id="quotes-submit">Apply Quotes  <i class="arrow right"></i></button>
-                <button type="button results" id="results-to-input" disabled><i class="arrow left" > </i>  Copy to Input</button>
-                <button type="button" id="four-line-submit" disabled>4 Per Line<i class="arrow right"></i></button>
-                <button type="button clear" id="clear-right" disabled>Clear  <i class="arrow right"></i></button>
+                <button type="button clear" id="clear-left" onclick="clearInputLeft()"><i class="arrow left"> </i>  Clear</button>
+                <button type="button" id="zero-submit" onclick="addZeroes()">Add Zeroes  <i class="arrow right"></i></button>
+                <button type="button" id="quotes-submit" onclick="addQuotes()">Apply Quotes  <i class="arrow right"></i></button>
+                <button type="button" id="quotes-zeroes-submit" onclick="addZeroesAndQuotes(id)">Apply Zeroes and Quotes <i class="arrow right"></i></button>
+                <button type="button results" id="results-to-input" onclick="copyResultToInput()" disabled><i class="arrow left" > </i>  Copy to Input</button>
+                <button type="button" id="four-line-submit" onclick="fourPerLine()" disabled>4 Per Line<i class="arrow right"></i></button>
+                <button type="button clear" id="clear-right" onclick="clearOutputRight()" disabled>Clear  <i class="arrow right"></i></button>
                 
                 <!-- <button type="button copy" id="copy" disabled>Copy to Clipboard</button> -->
                 <!-- <button type="button" id="quotes-submit">Zeroes and Quotes<i class="arrow right"></i></button> -->

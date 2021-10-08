@@ -30,6 +30,7 @@ textarea {
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 6px 8px rgba(0, 0, 0, 0.4);
   padding: 20px;
+  height: 360px;
   border-radius: 3px;
 }
 
@@ -67,6 +68,8 @@ button:hover {
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
+  margin-left: 3px;
+  margin-right: 6px;
 }
 
 
@@ -88,3 +91,8 @@ button:hover {
 /* .overTen {
   color: white;
 } */
+
+/* .warning { */
+  /* background-color: #fffbc8; */
+  /* border: 2px solid #fffbc8; */
+/* } */
