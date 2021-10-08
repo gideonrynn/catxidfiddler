@@ -85,7 +85,8 @@ function addZeroes(id) {
 function addQuotes(zeroes) {
 
     document.querySelector('#output').textContent = "";
-    let originalList = ""
+    let originalList = "";
+    
         if(zeroes) {
             originalList = zeroes;
         } else {
@@ -93,8 +94,6 @@ function addQuotes(zeroes) {
             }
             
     let quotesList = "";
-    // console.log("this is the user inputted original list: " + "\n" + originalList + " and the length is: " + originalList.length);
-
 
     let numArray = originalList.trim().split("\n");
     // console.log("this is the modified list: " + "\n" + numArray + " and the length is: " + numArray.length);
