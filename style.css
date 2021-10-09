@@ -4,13 +4,13 @@ body {
   background-color: #836eaa;
 }
 
-.wrapper-one {
-  display: none;
+/* .wrapper-one {
+  display: none; */
   /* display: flex; */
-  align-items: center;
+  /* align-items: center;
   justify-content: center;
   height: 100vh;
-}
+} */
 
 .wrapper-two {
   display: flex;

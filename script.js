@@ -1,5 +1,10 @@
 
-
+function noInput() {
+    let originalList = document.querySelector('#input').value;
+    if(!originalList) {
+        document.querySelector('#output').innerHTML = "No info";
+    }
+}
 
 function runValidation() {
     console.log("you changed this thing")
@@ -86,12 +91,16 @@ function addQuotes(zeroes) {
 
     document.querySelector('#output').textContent = "";
     let originalList = "";
-    
+
         if(zeroes) {
+
             originalList = zeroes;
+
         } else {
-                document.querySelector('#input').value;
-            }
+
+            originalList = document.querySelector('#input').value;
+            
+        }
             
     let quotesList = "";
 
