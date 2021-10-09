@@ -4,6 +4,12 @@ body {
   background-color: #836eaa;
 }
 
+.container {
+  height: auto;       /* These two lines were the key. */
+  min-height: 100%;
+  display: flex;
+  align-content: center;
+}
 /* .wrapper-one {
   display: none; */
   /* display: flex; */
@@ -12,26 +18,82 @@ body {
   height: 100vh;
 } */
 
-.wrapper-two {
+/* .wrapper-two {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+} */
+
+.wrapper-two {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: auto;
+  /* grid-template-areas:
+    "action action"
+    "progress progress"; */
+}
+
+.wrapper-three {
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: row;
+    /* grid-row-gap: 25px; */
+    /* align-items: center; */
+}
+
+.wrapper-four {
+  min-width: 400px;
+}
+
+.input-section {
+  /* grid-area: input; */
+  /* padding: 0px; */
+  /* margin: 0px; */
+  flex: 1 0 auto;
+}
+
+.output-section {
+  /* grid-area: output; */
+  /* padding: 0px; */
+  /* margin: 0px; */
+  flex: 1 0 auto;
+}
+
+.progress-section {
+  /* grid-area: progress; */
+  padding: 0px;
+  margin: 0px;
 }
 
 .button-options {
+  /* grid-area: buttons; */
   text-align: center;
-  padding: 40px;
+  /* padding: 40px; */
   display: flex;
   flex-direction: column;
+
+  flex: 1 0 auto;
 }
 
 textarea {
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 6px 8px rgba(0, 0, 0, 0.4);
-  padding: 20px;
+  /* padding: 20px; */
+  width: 100%;
+  /* max-width: 500px; */
+  min-width: 500px;
   height: 360px;
   border-radius: 3px;
+}
+
+textarea.area-input, textarea.area-output {
+  /* height: 360px; */
+  padding: 20px;
+  margin: 0px;
+  padding: 0px;
+
 }
 
 textarea:hover {
@@ -72,16 +134,21 @@ button:hover {
   margin-right: 6px;
 }
 
-
 .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
 
-.copy {
+textarea.progress-box {
+  width: 100%;
+  height: 150px;
+  max-width: 100%;
+}
+
+/* .copy { */
   /* set script so that value in the result box causes copy to clipboard to not be disabled */
   
-}
+/* } */
 /* 
 #input-comment, #output-comment, #button-comment {
   border-radius: 3px;

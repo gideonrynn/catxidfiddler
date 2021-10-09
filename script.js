@@ -1,48 +1,69 @@
+let progressUpdate = "";
+ 
+function getInputValue() {
+
+    // get original list submitted by user
+    let originalList = document.getElementById("input").value;
+
+    // trim white space and separate into array so we can evaluate each item appropriately
+    let inputArray = originalList.trim().split("\n");
+
+    return inputArray;
+}
+
+function clearOutput() {
+    // clear output between conversions
+    document.querySelector('#output').textContent = "";
+}
 
 function noInput() {
     let originalList = document.querySelector('#input').value;
     if(!originalList) {
-        document.querySelector('#output').innerHTML = "No info";
+        document.querySelector('#output').textContent = "No info";
     }
 }
 
 function runValidation() {
-    console.log("you changed this thing")
+    console.log("data entered in input")
+    
+    numArray = getInputValue();
+    let validationError = false;
+    let numberOfDigitsError = false;
 
-    // let input = document.getElementById("input");
-    // let originalList = document.querySelector('#input').value;
-    // let numArray = originalList.trim().split("\n");
+    numArray.forEach(number => {
 
-    //  numArray.forEach(number => {
-
-    //     console.log(number);
-    //     thisNumber = parseInt(number, 10);
+        console.log(number);
+        thisNumber = parseInt(number, 10);
         
-    //     let numberOfDigits = thisNumber.toString().length;
-    //     console.log(numberOfDigits);
-    //     if (numberOfDigits > 10) {
+        let numberOfDigits = thisNumber.toString().length;
+        console.log(numberOfDigits);
+        if (numberOfDigits > 10) {
        
-    //         input.classList.add("warning");
-    //         console.log("this is more than 10 characters")
+            input.classList.add("warning");
+            numberOfDigitsError = true;
 
-    //      } else {
-    //         input.classList.remove("warning");
-    //      }
+         } else {
+            input.classList.remove("warning");
+            
+         }
 
-    //  })
+     })
+
+     if(numberOfDigitsError == true) {
+        progressUpdate += "Input contains entries with more than 10 digits" + "\n";
+     } else {
+        progressUpdate += "Validation complete"+ "\n";
+     }
+
+     document.querySelector('#progress').textContent = progressUpdate;
 
 }
 
 function addZeroes(id) {
 
-    // clear output between conversions
-    document.querySelector('#output').innerHTML = "";
+    clearOutput();
 
-    // get original list submitted by user
-    let originalList = document.querySelector('#input').value;
-
-    // trim white space and separate into array so we can evaluate each item appropriately
-    let numArray = originalList.trim().split("\n");
+    numArray = getInputValue();
     // console.log("numarray: " + numArray);
 
     let tenDigitNums = "";
@@ -68,6 +89,7 @@ function addZeroes(id) {
         }
 
         tenDigitNums = tenDigitNums + number + "\n"; 
+        
      
     })
 
@@ -75,7 +97,9 @@ function addZeroes(id) {
         return tenDigitNums;
     } else {
         // console.log(typeof tenDigitNums);
+        progressUpdate += "Zeroes applied: " + tenDigitNums;
         document.querySelector('#output').innerHTML = tenDigitNums;
+        document.querySelector('#progress').innerHTML = progressUpdate;
         document.querySelector("#clear-right").removeAttribute("disabled");
         document.querySelector("#results-to-input").removeAttribute("disabled");
         document.querySelector("#four-line-submit").removeAttribute("disabled");
@@ -92,16 +116,16 @@ function addQuotes(zeroes) {
     document.querySelector('#output').textContent = "";
     let originalList = "";
 
-        if(zeroes) {
+    if(zeroes) {
 
-            originalList = zeroes;
+        originalList = zeroes;
 
-        } else {
+    } else {
 
-            originalList = document.querySelector('#input').value;
-            
-        }
-            
+        originalList = document.querySelector('#input').value;
+
+    }
+        
     let quotesList = "";
 
     let numArray = originalList.trim().split("\n");
@@ -175,11 +199,11 @@ function copyResultToInput() {
 
 }
 
-function clearOutput() {
-    document.querySelector('#output').innerHTML = "";
+// function clearOutput() {
+//     document.querySelector('#output').innerHTML = "";
     // console.log(document.querySelector('#output').innerHTML);
     // console.log(document.querySelector('#output').textContent);
-}
+// }
 
 function clearOutputRight() {
     document.querySelector('#output').innerHTML = "";

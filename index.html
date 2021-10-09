@@ -22,19 +22,18 @@
                 <button type="button" id="quotes-submit">Apply Quotes</button>
             </div>
         </div> -->
-        <div class="wrapper-two">
+    <div class="wrapper-two">
+        <div class="wrapper-three">
             <div class="input-section">            
-                <div class="text-input">
-                    <textarea rows="20" cols="50" id="input" placeholder="Input: &#10 987436 &#10 89431 &#10 5876512" onchange="runValidation()"></textarea>
-                </div>
+                    <textarea class="area-input" rows="20" cols="50" id="input" placeholder="Input: &#10 987436 &#10 89431 &#10 5876512" oninput="runValidation()"></textarea>
             </div>
             <div class="button-options">
-                <div id="button-comment"> <p></p></div>
+                <!-- <div id="button-comment"> <p></p></div> -->
                 <button type="button clear" id="clear-left" onclick="clearInputLeft()"><i class="arrow left"> </i>  Clear</button>
                 <button type="button" id="zero-submit" onclick="addZeroes()">Add Zeroes  <i class="arrow right"></i></button>
                 <button type="button" id="quotes-submit" onclick="addQuotes()">Apply Quotes  <i class="arrow right"></i></button>
                 <button type="button" id="quotes-zeroes-submit" onclick="addZeroesAndQuotes(id)">Apply Zeroes and Quotes <i class="arrow right"></i></button>
-                <button type="button results" id="results-to-input" onclick="copyResultToInput()" disabled><i class="arrow left" > </i>  Copy to Input</button>
+                <!-- <button type="button results" id="results-to-input" onclick="copyResultToInput()" disabled><i class="arrow left" > </i>  Copy to Input</button> -->
                 <button type="button" id="four-line-submit" onclick="fourPerLine()" disabled>Output to 4 Per Line<i class="arrow right"></i></button>
                 <button type="button clear" id="clear-right" onclick="clearOutputRight()" disabled>Clear  <i class="arrow right"></i></button>
                 
@@ -42,12 +41,15 @@
                 <!-- <button type="button" id="quotes-submit">Zeroes and Quotes<i class="arrow right"></i></button> -->
             </div>
             <div class="output-section">
-                <textarea rows="20" cols="50" id="output" placeholder="Result: &#10 '0000987436', &#10 '0000089431', &#10 '0005876512'" readonly></textarea>
+                <textarea class="area-output" rows="20" cols="50" id="output" placeholder="Result: &#10 '0000987436', &#10 '0000089431', &#10 '0005876512'" readonly></textarea>
             </div>
-            <!-- <div class="button-options">
-                
-            </div> -->
         </div>
+        <div class="wrapper-four">
+            <div class="progress-section">
+                <textarea class="progress-box" id="progress" placeholder="Progress" readonly></textarea>
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 </html>
